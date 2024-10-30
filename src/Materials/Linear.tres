@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cr6xyjbcp4lr8"]
+
+[ext_resource type="Shader" path="res://Shaders/Linear.gdshader" id="1_rh1w2"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_rh1w2")
+shader_parameter/STRIPES = 4.0
+shader_parameter/XOFFSET = null
+shader_parameter/YOFFSET = null
+shader_parameter/ANGLE = 0.0

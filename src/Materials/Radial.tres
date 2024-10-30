@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6h5gfc6p7pen"]
+
+[ext_resource type="Shader" path="res://Shaders/Radial.gdshader" id="1_ls2k2"]
+
+[resource]
+shader = ExtResource("1_ls2k2")
+shader_parameter/STRIPES = 6.0
+shader_parameter/XOFFSET = null
+shader_parameter/YOFFSET = null
+shader_parameter/ANGLE = null

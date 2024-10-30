@@ -1,0 +1,224 @@
+[gd_scene load_steps=3 format=3 uid="uid://n60acpviqdte"]
+
+[ext_resource type="PackedScene" uid="uid://bulrlyqixx4kj" path="res://Image.tscn" id="1_5433m"]
+[ext_resource type="Script" path="res://Scripts/GratingControls.gd" id="2_iinxe"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_right = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+offset = Vector2(360, 0)
+anchor_mode = 0
+
+[node name="Panel" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_5433m")]
+offset_left = 360.0
+offset_right = -24.0
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("angle1Input", "angle2Input", "angleLockInput", "stripes1Input", "stripes2Input", "stripesLockInput", "shader1Input", "shader2Input", "size1Input", "size2Input", "sizeLockInput")]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 384.0
+grow_vertical = 2
+script = ExtResource("2_iinxe")
+angle1Input = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/Angle1Input")
+angle2Input = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/Angle2Input")
+angleLockInput = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/AngleLockInput")
+stripes1Input = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/Stripes1Input")
+stripes2Input = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/Stripes2Input")
+stripesLockInput = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/StripesLockInput")
+shader1Input = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/Shader1Input")
+shader2Input = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/Shader2Input")
+size1Input = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/Size1Input")
+size2Input = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/Size2Input")
+sizeLockInput = NodePath("ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer/SizeLockInput")
+
+[node name="ControlsPanel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlsScrollContainer" type="ScrollContainer" parent="Control/ControlsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlsVBoxContainer" type="VBoxContainer" parent="Control/ControlsPanel/ControlsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlsLabel" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer"]
+layout_mode = 2
+text = "Customize gratings"
+horizontal_alignment = 1
+
+[node name="ControlsGridContainer" type="GridContainer" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+
+[node name="Spacer1" type="Control" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+
+[node name="Grating1Label" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "Grating 1"
+
+[node name="Grating2Label" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "Grating 2"
+
+[node name="LockLabel" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "Lock"
+
+[node name="AngleLabel" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "Angle"
+
+[node name="Angle1Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+max_value = 360.0
+value = 3.0
+
+[node name="Angle2Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+max_value = 360.0
+
+[node name="AngleLockInput" type="CheckBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+
+[node name="StripesLabal" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "Stripes"
+
+[node name="Stripes1Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+max_value = 8192.0
+value = 128.0
+
+[node name="Stripes2Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+max_value = 8192.0
+value = 128.0
+
+[node name="StripesLockInput" type="CheckBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+
+[node name="XOffsetLabel" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "X Offset"
+
+[node name="XOffset1Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+min_value = -8192.0
+max_value = 8192.0
+editable = false
+
+[node name="XOffset2Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+min_value = -8192.0
+max_value = 8192.0
+editable = false
+
+[node name="XOffsetLockInput" type="CheckBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+
+[node name="YOffsetLabel" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "Y Offset"
+
+[node name="YOffset1Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+min_value = -8192.0
+max_value = 8192.0
+editable = false
+
+[node name="YOffset2Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+min_value = -8192.0
+max_value = 8192.0
+editable = false
+
+[node name="YOffsetLockInput" type="CheckBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+
+[node name="SizeLabel" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "Size"
+
+[node name="Size1Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+min_value = 128.0
+max_value = 8192.0
+value = 512.0
+
+[node name="Size2Input" type="SpinBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+min_value = 128.0
+max_value = 8192.0
+value = 512.0
+
+[node name="SizeLockInput" type="CheckBox" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+
+[node name="ShaderLabel" type="Label" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+text = "Shader"
+
+[node name="Shader1Input" type="OptionButton" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Linear"
+popup/item_1/text = "Concentric"
+popup/item_1/id = 1
+popup/item_2/text = "Radial"
+popup/item_2/id = 2
+
+[node name="Shader2Input" type="OptionButton" parent="Control/ControlsPanel/ControlsScrollContainer/ControlsVBoxContainer/ControlsGridContainer"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Linear"
+popup/item_1/text = "Concentric"
+popup/item_1/id = 1
+popup/item_2/text = "Radial"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="Control/ControlsPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Made with Godot"
+horizontal_alignment = 1

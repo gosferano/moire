@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dnsxyas67dx0v"]
+
+[ext_resource type="Shader" path="res://Shaders/Concentric.gdshader" id="1_0osm0"]
+
+[resource]
+shader = ExtResource("1_0osm0")
+shader_parameter/STRIPES = 6.0
+shader_parameter/XOFFSET = null
+shader_parameter/YOFFSET = null
+shader_parameter/ANGLE = null
